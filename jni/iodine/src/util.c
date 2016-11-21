@@ -22,7 +22,7 @@ char *
 get_resolvconf_addr()
 {
 	static char addr[16];
-	char *rv;
+	char *rv = NULL;
 #ifndef WINDOWS32
 	char buf[80];
 	FILE *fp;
@@ -37,7 +37,6 @@ get_resolvconf_addr()
 	pclose(fp);
 #else
 
-	rv = NULL;
 
 	if ((fp = fopen("/etc/resolv.conf", "r")) == NULL)
 		err(1, "/etc/resolv.conf");
@@ -58,7 +57,6 @@ get_resolvconf_addr()
 	ULONG       buflen;
 	DWORD       ret;
 
-	rv = NULL;
 	fixed_info = malloc(sizeof(FIXED_INFO));
 	buflen = sizeof(FIXED_INFO);
 
