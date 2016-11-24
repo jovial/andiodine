@@ -18,18 +18,20 @@ android {
         jniLibs.srcDir 'libs'
     }
 
-    productFlavors {
-        arm {
-            ndk {
-                abiFilters "armeabi"
-            }
-        }
-        x86 {
-            ndk {
-                abiFilter "x86"
-            }
+    splits {
+
+        // Configures screen ABI split settings
+        abi {
+
+            // Enable ABI APK splits
+            enable true
+
+            // Specify that we do not want to also generate a universal APK that includes all ABIs
+            universalApk true
         }
     }
+
+
     externalNativeBuild {
         ndkBuild {
             path 'jni/Android.mk'

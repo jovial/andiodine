@@ -1,6 +1,6 @@
 
-#ifndef __FIX_ANDROID_H__
-#define __FIX_ANDROID_H__
+#ifndef _ARPA_NAMESER_COMPAT_
+#define _ARPA_NAMESER_COMPAT_
 
 typedef struct {
 	unsigned id :16;
